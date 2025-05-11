@@ -16,5 +16,6 @@ class DatabaseSeeder extends Seeder
             'password' => Hash::make('Hello12345*'), // This is hashed
             'role' => 'admin'
         ]);
+        
     }
 }

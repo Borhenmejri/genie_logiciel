@@ -53,5 +53,8 @@ class Kernel extends HttpKernel
 
         // ✅ Custom Middleware
         'admin' => \App\Http\Middleware\AdminMiddleware::class,
+        'auth' => \App\Http\Middleware\Authenticate::class,
+        
+
     ];
 }

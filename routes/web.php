@@ -23,6 +23,21 @@ Route::resource('financial', FinancialController::class);
 Route::resource('reports', ReportsController::class);
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+// Routes that require just login
+Route::middleware(['auth'])->group(function () {
+    Route::get('/dashboard', [DashboardController::class, 'index']);
+
+    // Only authenticated users can access these
+    Route::resource('livestock', LivestockController::class);
+    Route::resource('inventory', InventoryController::class);
+    Route::resource('finance', FinanceController::class);
+    Route::resource('reports', ReportsController::class);
+});
+
+// Routes that require admin login
+Route::middleware(['auth'])->group(function () {
+    Route::resource('users', UserController::class); // only for admins
+});
 
 
 

@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('email')->unique(); // Unique email
             $table->string('password'); // Hashed password
-            $table->enum('role', ['admin', 'manager', 'user'])->default('user'); // User role
+            $table->enum('role', ['admin','worker', 'manager', 'user'])->default('user'); // User role
             $table->timestamps(); // created_at, updated_at
         });
     }
